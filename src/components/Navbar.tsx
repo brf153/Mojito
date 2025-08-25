@@ -1,0 +1,71 @@
+import { Box, Typography } from "@mui/material";
+import { useRef } from "react";
+import { navLinks } from "../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Navbar = () => {
+  const navRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(() => {
+    gsap.to(navRef.current, {
+      backgroundColor: "#00000050",
+      backdropFilter: "blur(10px)",
+      duration: 1,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: navRef.current,
+        start: "bottom top",
+        scrub: true,
+      },
+    });
+  }, []);
+
+  return (
+    <Box
+      ref={navRef}
+      sx={{
+        width: "100%",
+        backgroundColor: "transparent",
+        position: "fixed",
+        zIndex: 50,
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          gap: { xs: 2, md: 0 },
+          width: { xs: "100%", md: "70%" },
+          justifyContent: { xs: "space-around", md: "space-between" },
+          mx: "auto",
+          p: 2,
+          px: { xs: 0, md: 8 },
+        }}
+      >
+        <Box sx={{ display: "flex", gap: 1 }}>
+          <img src="/images/logo.png" alt="Logo" />
+          <Typography
+            variant="h5"
+            sx={{ fontFamily: "serif", fontWeight: "bold" }}
+          >
+            Velvet Pour
+          </Typography>
+        </Box>
+        <Box sx={{ display: "flex", gap: 6 }}>
+          {navLinks.map((link) => (
+            <Typography key={link.id} sx={{ fontFamily: "serif" }}>
+              {link.title}
+            </Typography>
+          ))}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default Navbar;
