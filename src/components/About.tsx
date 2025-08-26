@@ -13,8 +13,56 @@ import {
 import Grid from "@mui/material/Grid";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { featureLists } from "../constants/index";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger, SplitText } from "gsap/all";
+import gsap from "gsap";
+import { useRef } from "react";
 
-const abt = () => {
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+const About = () => {
+
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(()=>{
+    const splitText = new SplitText("#about-title", {
+      "type": "words"
+    })
+
+    gsap.from(splitText.words, {
+      duration: 0.2,
+      opacity: 0,
+      y: 50,
+      stagger: 0.1,
+      ease: 'expo.out',
+      scrollTrigger:{
+        trigger: "#about-title",
+        start: "top bottom",
+        end: "bottom center",
+        scrub: true
+      }
+    })
+
+    console.log("checking gridref", gridRef)
+
+    gsap.from(
+      gridRef.current ? Array.from(gridRef.current.children) : [],
+      {
+        duration: 0.2,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'power1.inOut',
+        scrollTrigger:{
+          trigger: gridRef.current,
+          start: "top bottom",
+          end: "80% bottom",
+          scrub: true
+        }
+      }
+    )
+
+  },[])
+  
   return (
     <Box sx={{ minHeight: "100vh", width: "100%" }}>
       <Box
@@ -58,6 +106,7 @@ const abt = () => {
                 lineHeight: 1.2,
                 fontWeight: "bold",
               }}
+              id="about-title"
             >
               Where every detail matters—from muddle to garnish
             </Typography>
@@ -164,7 +213,7 @@ const abt = () => {
           </Box>
         </Box>
         <Box>
-          <Grid container rowSpacing={1} columnSpacing={3} sx={{ mt: 2 }}>
+          <Grid ref={gridRef} container rowSpacing={2} columnSpacing={3} sx={{ mt: 2 }}>
             <Grid size={3}>
               <img
                 src="/images/abt1.png"
@@ -203,7 +252,7 @@ const abt = () => {
                 <List>
                   {featureLists.map((feature, index) => (
                     <ListItem key={index} disablePadding>
-                      <ListItemButton>
+                      <ListItemButton disableTouchRipple>
                         <ListItemIcon>
                           <CheckCircleIcon sx={{ color: "white" }} />
                         </ListItemIcon>
@@ -257,4 +306,4 @@ const abt = () => {
   );
 };
 
-export default abt;
+export default About;
