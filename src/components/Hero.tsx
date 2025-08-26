@@ -1,7 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import { Box, Link, Typography } from "@mui/material";
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { SplitText, ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
   useGSAP(() => {
@@ -31,6 +33,20 @@ const Hero = () => {
       stagger: 0.06,
       delay: 1,
     });
+
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      }
+    }).to('.left-leaf', {
+      y: -150,
+    }, 0).to('.right-leaf', {
+      y: 200,
+    }, 0);
+
   }, []);
 
   return (
