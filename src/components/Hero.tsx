@@ -4,36 +4,35 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 
 const Hero = () => {
-    useGSAP(()=>{
-        const heroSplit = new SplitText("#hero-title", {
-	 type: "chars, words",
-	});
+  useGSAP(() => {
+    const heroSplit = new SplitText("#hero-title", {
+      type: "chars, words",
+    });
 
-	const paragraphSplit = new SplitText("#hero-subtitle", {
-	 type: "lines",
-	});
+    const paragraphSplit = new SplitText("#hero-subtitle", {
+      type: "lines",
+    });
 
-    	// Apply text-gradient class once before animating
-	heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
-	
-	gsap.from(heroSplit.chars, {
-	 yPercent: 100,
-	 duration: 1.8,
-	 ease: "expo.out",
-	 stagger: 0.06,
-	});
-	
-	gsap.from(paragraphSplit.lines, {
-	 opacity: 0,
-	 yPercent: 100,
-	 duration: 1.8,
-	 ease: "expo.out",
-	 stagger: 0.06,
-	 delay: 1,
-	});
+    // Apply text-gradient class once before animating
+    heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
 
-    },[])
-    
+    gsap.from(heroSplit.chars, {
+      yPercent: 100,
+      duration: 1.8,
+      ease: "expo.out",
+      stagger: 0.06,
+    });
+
+    gsap.from(paragraphSplit.lines, {
+      opacity: 0,
+      yPercent: 100,
+      duration: 1.8,
+      ease: "expo.out",
+      stagger: 0.06,
+      delay: 1,
+    });
+  }, []);
+
   return (
     <div id="hero" className="noisy">
       <img
@@ -122,7 +121,17 @@ const Hero = () => {
               creative flair, and timeless recipes — designed to delight your
               senses.
             </Typography>
-            <Link href="#" underline="none" color="inherit" sx={{ ":hover": { color: "yellow" }, opacity: 0.8, fontWeight: 600, ml: 2 }}>
+            <Link
+              href="#"
+              underline="none"
+              color="inherit"
+              sx={{
+                ":hover": { color: "yellow" },
+                opacity: 0.8,
+                fontWeight: 600,
+                ml: 2,
+              }}
+            >
               View cocktails
             </Link>
           </Box>
