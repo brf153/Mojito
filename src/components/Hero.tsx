@@ -104,8 +104,8 @@ const Hero = () => {
             left: "50%",
             transform: "translateX(-50%)",
             width: "90%",
-            top: "15%",
-            height: "78%",
+            top: "6%",
+            height: "90%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -122,7 +122,7 @@ const Hero = () => {
             <Typography
               sx={{
                 fontFamily: "Modern Negra",
-                fontSize: ["80px", "10vw"],
+                fontSize: ["80px", "16vw"],
               }}
               id="hero-title"
             >
@@ -130,7 +130,7 @@ const Hero = () => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <Typography
                 sx={{
                   fontFamily: "DM Serif Text",
@@ -145,7 +145,7 @@ const Hero = () => {
                   color: "yellow",
                   fontFamily: "Modern Negra",
                   lineHeight: 1,
-                  textAlign: "center",
+                  textAlign: "left",
                 }}
                 id="hero-subtitle"
               >
@@ -154,7 +154,7 @@ const Hero = () => {
             </Box>
             <Box
               sx={{
-                width: "30%",
+                width: "27%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "left",
@@ -164,9 +164,9 @@ const Hero = () => {
               <Typography
                 sx={{
                   fontFamily: "DM Serif Text",
-                  fontSize: "18px",
+                  fontSize: "24px",
                   color: "white",
-                  textAlign: "center",
+                  textAlign: "left",
                 }}
                 id="hero-subtitle"
               >

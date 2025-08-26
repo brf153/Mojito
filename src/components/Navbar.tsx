@@ -10,19 +10,21 @@ gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
   const navRef = useRef<HTMLElement | null>(null);
 
-  useGSAP(() => {
-    gsap.to(navRef.current, {
-      backgroundColor: "#00000050",
-      backdropFilter: "blur(10px)",
-      duration: 1,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: navRef.current,
-        start: "bottom top",
-        scrub: true,
-      },
-    });
-  }, []);
+ useGSAP(() => {
+	const navTween = gsap.timeline({
+	 scrollTrigger: {
+		trigger: navRef.current,
+		start: 'bottom top'
+	 }
+	});
+
+	navTween.fromTo(navRef.current, { backgroundColor: 'transparent' }, {
+	 backgroundColor: '#00000050',
+	 backgroundFilter: 'blur(10px)',
+	 duration: 1,
+	 ease: 'power1.inOut'
+	});
+ })
 
   return (
     <Box
@@ -39,8 +41,7 @@ const Navbar = () => {
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
-          gap: { xs: 2, md: 0 },
-          width: { xs: "100%", md: "70%" },
+          width: { xs: "100%", md: "90%" },
           justifyContent: { xs: "space-around", md: "space-between" },
           mx: "auto",
           p: 2,
