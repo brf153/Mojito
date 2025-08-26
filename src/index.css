@@ -31,10 +31,10 @@ body {
 }
 
 @utility text-gradient {
-    background: linear-gradient(to bottom, #ffffff, #898989);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to bottom, #ffffff, #898989);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .noisy {
@@ -53,8 +53,8 @@ body {
   @apply font-modern-negra md:text-6xl text-3xl text-yellow max-w-40;
 }
 
-#hero{
-    @apply relative z-10 min-h-dvh w-full border border-transparent;
+#hero {
+  @apply relative z-10 min-h-dvh w-full border border-transparent;
 }
 
 .body {
@@ -83,4 +83,8 @@ body {
       }
     }
   }
+}
+
+video {
+  @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
 }

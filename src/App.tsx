@@ -8,7 +8,6 @@ function App() {
     <Box>
       <Navbar />
       <Hero />
-      <div className='h-dvh bg-black' />
     </Box>
   )
 }
