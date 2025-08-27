@@ -21,48 +21,41 @@ import { useRef } from "react";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const About = () => {
-
   const gridRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(()=>{
+  useGSAP(() => {
     const splitText = new SplitText("#about-title", {
-      "type": "words"
-    })
+      type: "words",
+    });
 
     gsap.from(splitText.words, {
       duration: 0.2,
       opacity: 0,
       y: 50,
       stagger: 0.1,
-      ease: 'expo.out',
-      scrollTrigger:{
+      ease: "expo.out",
+      scrollTrigger: {
         trigger: "#about-title",
         start: "top bottom",
         end: "bottom center",
-        scrub: true
-      }
-    })
+        scrub: true,
+      },
+    });
 
-    console.log("checking gridref", gridRef)
+    gsap.from(gridRef.current ? Array.from(gridRef.current.children) : [], {
+      duration: 0.2,
+      opacity: 0,
+      stagger: 0.1,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: gridRef.current,
+        start: "top bottom",
+        end: "80% bottom",
+        scrub: true,
+      },
+    });
+  }, []);
 
-    gsap.from(
-      gridRef.current ? Array.from(gridRef.current.children) : [],
-      {
-        duration: 0.2,
-        opacity: 0,
-        stagger: 0.1,
-        ease: 'power1.inOut',
-        scrollTrigger:{
-          trigger: gridRef.current,
-          start: "top bottom",
-          end: "80% bottom",
-          scrub: true
-        }
-      }
-    )
-
-  },[])
-  
   return (
     <Box sx={{ minHeight: "100vh", width: "100%" }}>
       <Box
@@ -73,7 +66,7 @@ const About = () => {
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
-          gap: 2
+          gap: 2,
         }}
       >
         <Box
@@ -213,7 +206,13 @@ const About = () => {
           </Box>
         </Box>
         <Box>
-          <Grid ref={gridRef} container rowSpacing={2} columnSpacing={3} sx={{ mt: 2 }}>
+          <Grid
+            ref={gridRef}
+            container
+            rowSpacing={2}
+            columnSpacing={3}
+            sx={{ mt: 2 }}
+          >
             <Grid size={3}>
               <img
                 src="/images/abt1.png"

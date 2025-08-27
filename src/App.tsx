@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import Hero from './components/Hero'
 import Cocktails from './components/Cocktail'
 import About from './components/About'
+import Art from './components/Art'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Cocktails />
       <About />
+      <Art />
     </Box>
   )
 }
