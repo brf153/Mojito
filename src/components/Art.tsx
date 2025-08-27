@@ -70,10 +70,10 @@ const Art = () => {
         </div>
 
         <div className="masked-container">
-          <h2 className="will-fade text-4xl hidden md:block md:text-5xl font-modern-negra text-center relative bottom-10 text-white">Sip-Worthy Perfection</h2>
-          <div className="masked-content opacity-0 md:px-0 px-5 space-y-5 absolute md:-bottom-10 bottom-52 left-1/2 -translate-x-1/2">
-            <h3 className="md:text-5xl text-2xl text-center font-serif md:w-full w-80 text-white">Made with Craft, Poured with Passion</h3>
-            <p className="text-lg text-center">
+          <h2 className="will-fade text-4xl hidden md:block md:text-5xl font-modern-negra text-center relative xl:bottom-10 text-white">Sip-Worthy Perfection</h2>
+          <div className="masked-content opacity-0 md:px-0 px-5 space-y-5 absolute md:-bottom-10 bottom-12 left-1/2 -translate-x-1/2">
+            <h3 className="xl:text-5xl text-2xl text-center font-serif md:w-full w-80 text-white">Made with Craft, Poured with Passion</h3>
+            <p className="xl:text-lg text-center">
               This isn't just a drink. It's a carefully crafted moment made just
               for you.
             </p>

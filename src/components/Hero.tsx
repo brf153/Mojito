@@ -117,6 +117,8 @@ const Hero = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              position: "relative",
+              top: { xs: "20%", md: "10%", xl: 0 },
             }}
           >
             <Typography
@@ -130,7 +132,14 @@ const Hero = () => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+                visibility: { xs: "hidden", xl: "visible" },
+              }}
+            >
               <Typography
                 sx={{
                   fontFamily: "DM Serif Text",
@@ -154,7 +163,12 @@ const Hero = () => {
             </Box>
             <Box
               sx={{
-                width: "27%",
+                width: { xs: "90vw", xl: "27%" },
+                minWidth: { xs: "90vw", xl: 0 },
+                maxWidth: { xs: "90vw", xl: "none" },
+                position: "relative",
+                right: { xs: "32vmax", sm: "25vmax", lg: "10vmax", xl: 0 },
+                bottom: { xs: "10vmin", sm: 0, lg: "20vmin", xl: 0 },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "left",
@@ -164,7 +178,7 @@ const Hero = () => {
               <Typography
                 sx={{
                   fontFamily: "DM Serif Text",
-                  fontSize: "24px",
+                  fontSize: ["16px", "3vmin"],
                   color: "white",
                   textAlign: "left",
                 }}
@@ -182,7 +196,8 @@ const Hero = () => {
                   ":hover": { color: "yellow" },
                   opacity: 0.8,
                   fontWeight: 600,
-                  ml: 2,
+                  fontSize: { xs: "2vmin", xl: "16px" },
+                  ml: { xs: 0, xl: 2 },
                 }}
               >
                 View cocktails
