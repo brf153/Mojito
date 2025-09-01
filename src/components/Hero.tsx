@@ -178,7 +178,7 @@ const Hero = () => {
               <Typography
                 sx={{
                   fontFamily: "DM Serif Text",
-                  fontSize: ["16px", "3vmin"],
+                  fontSize: ["16px", "2.8vmin"],
                   color: "white",
                   textAlign: "left",
                 }}
