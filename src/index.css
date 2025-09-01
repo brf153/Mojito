@@ -241,7 +241,7 @@ body {
   }
 
   #menu {
-    @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient;
+    @apply relative w-full md:mt-40 mt-0 2xl:px-10 px-5 md:py-20 radial-gradient;
 
     #m-left-leaf {
       @apply object-contain absolute -bottom-20 left-0 md:w-fit w-1/3;

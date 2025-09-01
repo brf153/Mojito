@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { Box, Link, Typography, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
@@ -88,6 +88,7 @@ const Hero = () => {
   return (
     <>
       <Box id="hero" className="noisy">
+        <h1 className="title">MOJITO</h1>
         <img
           src="/images/hero-left-leaf.png"
           alt="Left Leaf"
@@ -98,110 +99,24 @@ const Hero = () => {
           alt="Right Leaf"
           className="right-leaf"
         />
-        <Box
-          sx={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "90%",
-            top: "6%",
-            height: "90%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "relative",
-              top: { xs: "20%", md: "10%", xl: 0 },
-            }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Modern Negra",
-                fontSize: ["80px", "16vw"],
-              }}
-              id="hero-title"
-            >
-              MOJITO
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 2,
-                visibility: { xs: "hidden", xl: "visible" },
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: "DM Serif Text",
-                  color: "white",
-                }}
-              >
-                Cool. Crisp. Classic.
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "60px",
-                  color: "yellow",
-                  fontFamily: "Modern Negra",
-                  lineHeight: 1,
-                  textAlign: "left",
-                }}
-                id="hero-subtitle"
-              >
+        <Box className="body">
+          {/* <img src="/images/arrow.png" alt="arrow" className="arrow" /> */}
+
+          <Box className="content">
+            <Box className="space-y-5 hidden md:block">
+              <p>Cool. Crisp. Classic.</p>
+              <p className="subtitle">
                 Sip the Spirit <br /> of Summer
-              </Typography>
+              </p>
             </Box>
-            <Box
-              sx={{
-                width: { xs: "90vw", xl: "27%" },
-                minWidth: { xs: "90vw", xl: 0 },
-                maxWidth: { xs: "90vw", xl: "none" },
-                position: "relative",
-                right: { xs: "32vmax", sm: "25vmax", lg: "10vmax", xl: 0 },
-                bottom: { xs: "10vmin", sm: 0, lg: "20vmin", xl: 0 },
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "left",
-                gap: 2,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: "DM Serif Text",
-                  fontSize: ["16px", "2.8vmin"],
-                  color: "white",
-                  textAlign: "left",
-                }}
-                id="hero-subtitle"
-              >
+
+            <Box className="view-cocktails">
+              <p className="subtitle">
                 Every cocktail on our menu is a blend of premium ingredients,
                 creative flair, and timeless recipes — designed to delight your
                 senses.
-              </Typography>
-              <Link
-                href="#"
-                underline="none"
-                color="inherit"
-                sx={{
-                  ":hover": { color: "yellow" },
-                  opacity: 0.8,
-                  fontWeight: 600,
-                  fontSize: { xs: "2vmin", xl: "16px" },
-                  ml: { xs: 0, xl: 2 },
-                }}
-              >
-                View cocktails
-              </Link>
+              </p>
+              <a href="#cocktails">View cocktails</a>
             </Box>
           </Box>
         </Box>
