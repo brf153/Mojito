@@ -12,11 +12,11 @@ const Hero = () => {
   const isMobile = useMediaQuery("(max-width:767px)");
 
   useGSAP(() => {
-    const heroSplit = new SplitText("#hero-title", {
+    const heroSplit = new SplitText(".title", {
       type: "chars, words",
     });
 
-    const paragraphSplit = new SplitText("#hero-subtitle", {
+    const paragraphSplit = new SplitText(".subtitle", {
       type: "lines",
     });
 
